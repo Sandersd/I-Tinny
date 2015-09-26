@@ -1,23 +1,29 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  // This code only runs on the client
+  Template.body.helpers({
+    tasks: function () {
+      return Tasks.find({});
     }
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+  Template.assessment.events({
+    "click .new-assessment": function (event) {
+      // Prevent default browser form submit
+      event.preventDefault();
+
+      HTTP.call('POST', 'https://api-sandbox.traitify.com/v1/assessments', {headers: { "Content-Type": "application/json", "Authorization": "Basic vuton8j6qv0o3mn0kqpkpbdmo6:x"}, data: {deck_id: 'career-deck'} }, function(error, response){
+      
+        // Get new assessment ID         
+        var assessment_id = JSON.parse(response.content).id
+        Session.set("assessment_id", assessment_id)
+
+      })
     }
   });
-}
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+  Template.assessment.helpers({
+    assessment_id: function(){
+      return Session.get("assessment_id");
+    }
+  })
 }
