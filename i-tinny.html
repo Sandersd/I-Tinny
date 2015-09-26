@@ -1,6 +1,7 @@
 <head>
   <title>i-tinny</title>
   <script src="https://cdn.traitify.com/js/widgets/v1.js"></script>​
+  <script src="//cdn.traitify.com/patches/dev_mode.js"></script>
 </head>
 
 <body>
@@ -8,9 +9,21 @@
   <div class="container-fluid">
     {{> header}}
     <div class="row">
-      {{> about}}
-      {{> test_page}}
-      {{> assessment}}
+    {{ > main }}
     </div>
   </div>
 </body>
+
+<template name="first">
+  {{> about}}
+  {{> test_page}}
+  {{> assessment}}
+</template>
+
+<template name="second">
+  {{> results}}
+</template>
+
+<template name="main">
+  {{> Template.dynamic template=content}}
+</template>
