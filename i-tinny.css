@@ -1,1 +1,29 @@
-/* CSS declarations go here */
+/**------------------------------------------------------------------
+[Table of Contents]
+
+1. Universal Edits / #Universal
+2. About.html / #About
+3.
+------------------------------------------------------------------**/
+
+/* #Universal
+================================ */
+body {
+	background-color: #bec0ac;
+}
+
+/* #About
+================================ */
+
+.gFont {
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.blue-box {
+	background-color: #337AB7;
+    color: white;
+    padding: 15px;
+}
+
+
+
