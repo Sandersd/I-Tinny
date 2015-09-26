@@ -5,34 +5,12 @@
 <body>
 
   <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center text-primary">
-        i-Tinny - Design your travel itinerary based on your personality
-      </h1>
+    {{> header}}
+    <div class="row">
+      {{> about}}
+
+      {{> test_page}}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <p class="text-left">
-      </p>
-      <div>
-        How to use i-Tinny
-      </div>
-      Simply take our personality test, choose a desired destination. We will suggest the best travel itinerary for you ever!
-
-    </div>
-    <div class="col-md-10">
-
-      <button type="button" class="btn btn-primary btn-lg btn-block">
-        Take our test now!
-      </button>
-    </div>
-  </div>
-</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
