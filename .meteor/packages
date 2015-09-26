@@ -21,3 +21,7 @@ insecure                # Allow all DB writes from clients (for prototyping)
 twbs:bootstrap
 http
 fourseven:scss
+mizzao:jquery-ui
+drblue:fullcalendar
+rajit:bootstrap3-datepicker
+tsega:bootstrap3-datetimepicker
