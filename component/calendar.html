@@ -1,17 +1,26 @@
 <template name="calendar">
   <div class="container">
     <div class='col-md-10'>
+                <form class="bookFlight">
             <div class="form-group lead">
                 <div class='input-group date' id='datetimepicker6'>
                     <input type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
+
                 </div>
             </div>
             <p class="col-md-10 lead">Please input your desited destination: </p>
             <span><input type="textarea" placeholder="Desired destination" class="input-lg col-lg-10 lead"></span><br>
             <input type="submit" value="Submit" class="btn-lg btn-success lead">
+            </form>
+
+            {{ #each destinations }}
+            {{> city}}
+            {{ /each}}
+
+
     </div>
 </div>
 <script type="text/javascript">

@@ -27,3 +27,5 @@ drblue:fullcalendar
 rajit:bootstrap3-datepicker
 tsega:bootstrap3-datetimepicker
 ian:accounts-ui-bootstrap-3
+oauth2
+reactive-var
