@@ -14,6 +14,7 @@ if (Meteor.isClient) {
     "click .new-assessment": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
+
       HTTP.call('POST', 'https://api-sandbox.traitify.com/v1/assessments', {headers: { "Content-Type": "application/json", "Authorization": "Basic vuton8j6qv0o3mn0kqpkpbdmo6:x"}, data: {deck_id: 'core'} }, function(error, response){
       
         // Get new assessment ID         
@@ -34,4 +35,5 @@ if (Meteor.isClient) {
       })
     }
   });
+
 }
