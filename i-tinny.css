@@ -9,9 +9,45 @@
 /* #Universal
 ================================ */
 body {
-	background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/10/222429/2d539a7f7017db4a713ab4aafba5f5ac.jpg');
+	height: 100%;
+	position: relative;
+	overflow-x: hidden;
+}
+
+.travel-bg{
+	background-image: url('http://www.downunderendeavours.com/wp-content/uploads/2014/08/experience-outdoor-hero-1-new-zealand-hiking-queenstown-2000x837.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.header-info{
+	width: 100%;
+	background-color: #fff;
+	top: -20px;
+	position: relative;
+}
+
+.top-35{
+	margin-top: 35px;
+}
+
+.is-hidden{
+	display: none;
+}
+
+.assessment{
+  width: 65%;
+  margin: 0 auto;
+}
+
+.white-bg-cover{
+	background-color: rgba(255, 255, 255, .65);
+	width: 100%;
+	position: absolute;
+	height: 100%;
 }
 
 /* #Header
@@ -19,13 +55,17 @@ body {
 
 .gFont {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color:white;
 	font-weight: 800;
+  font-size: 2em;
 }
 
 .btn-primary {
-	background-color:#817598;
-	border-color: #817598;	
+
+}
+
+.header-link{
+	display: inline;
+	padding: 15px 10px;
 }
 
 /* #About
@@ -34,6 +74,13 @@ body {
 	background-color: #337AB7;
     color: white;
     padding: 15px;
+}
+
+.info-container{
+	width: 100%;
+	background-color: rgba(255, 255, 255, .55);
+	text-align: center;
+	padding: 35px;
 }
 
 
