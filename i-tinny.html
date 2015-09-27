@@ -6,9 +6,11 @@
 </head>
 
 <body>
-
+  <div class="travel-bg"></div>
+  <div class="white-bg-cover is-hidden">
+  </div>
+{{> header}}
   <div class="container-fluid">
-    {{> header}}
     <div class="row">
     {{ > main }}
     </div>
@@ -16,7 +18,6 @@
 </body>
 
 <template name="first">
-  {{> about}}
   {{> test_page}}
   {{> assessment}}
 </template>

@@ -2,27 +2,91 @@
 [Table of Contents]
 
 1. Universal Edits / #Universal
-2. About.html / #About
-3.
-------------------------------------------------------------------**/
+2. Header  / #Header
+3. About.html / #About
+------------------- -----------------------------------------------**/
 
 /* #Universal
 ================================ */
 body {
-	background-color: #bec0ac;
+	height: 100%;
+	position: relative;
+	overflow-x: hidden;
+	background: url('http://www.downunderendeavours.com/wp-content/uploads/2014/08/experience-outdoor-hero-1-new-zealand-hiking-queenstown-2000x837.jpg')  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.travel-bg{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.header-info{
+	width: 100%;
+	background-color: #fff;
+	top: -20px;
+	position: relative;
+}
+
+.top-35{
+	margin-top: 35px;
+}
+
+.is-hidden{
+	display: none;
+}
+
+.is-clear{
+	opacity: 0;
+}
+
+.assessment{
+  width: 65%;
+  margin: 0 auto;
+}
+
+.white-bg-cover{
+	background-color: rgba(255, 255, 255, .65);
+	width: 100%;
+	position: absolute;
+	height: 100%;
+}
+
+/* #Header
+================================ */
+
+.gFont {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 800;
+  font-size: 2em;
+}
+
+.btn-primary {
+
+}
+
+.header-link{
+	display: inline;
+	padding: 15px 10px;
 }
 
 /* #About
 ================================ */
-
-.gFont {
-	font-family: 'Ubuntu Condensed', sans-serif;
-}
-
 .blue-box {
 	background-color: #337AB7;
     color: white;
     padding: 15px;
+}
+
+.info-container{
+	width: 100%;
+	background-color: rgba(255, 255, 255, .55);
+	text-align: center;
+	padding: 35px;
 }
 
 
