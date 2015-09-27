@@ -12,12 +12,14 @@ body {
 	height: 100%;
 	position: relative;
 	overflow-x: hidden;
+	background: url('http://www.downunderendeavours.com/wp-content/uploads/2014/08/experience-outdoor-hero-1-new-zealand-hiking-queenstown-2000x837.jpg')  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .travel-bg{
-	background-image: url('http://www.downunderendeavours.com/wp-content/uploads/2014/08/experience-outdoor-hero-1-new-zealand-hiking-queenstown-2000x837.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -36,6 +38,10 @@ body {
 
 .is-hidden{
 	display: none;
+}
+
+.is-clear{
+	opacity: 0;
 }
 
 .assessment{
