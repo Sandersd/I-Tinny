@@ -28,8 +28,9 @@ if (Meteor.isClient) {
         traitify.slideDeck.onFinished(function(){
           BlazeLayout.render('main', { content: "second" });
           HTTP.call('GET', 'https://api-sandbox.traitify.com/v1/assessments/' + Session.get("assessment_id") + '?data=types', {headers: { "Content-Type": "application/json", "Authorization": "Basic vuton8j6qv0o3mn0kqpkpbdmo6:x"} }, function(error, response){
-            console.log(response.data.personality_types)
-            console.log(response.data.personality_types.score)
+            console.log(response.data.personality_types[0]["score"])
+            console.log(response.data.personality_types[2]["personality_type"]["name"])
+            console.log(response.data.personality_types[5]["personality_type"]["name"])
           })
         })
       })
