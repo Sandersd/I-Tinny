@@ -1,10 +1,19 @@
 Events = new Mongo.Collection("events");
+Cities = new Mongo.Collection("cities");
+
+
 
 if (Meteor.isClient) {
   // This code only runs on the client
   Template.destinations.helpers({
     places: function () {
       return Events.find({});
+    }
+  });
+
+  Template.calendar.helpers({
+    destinations: function (){
+      return Cities.find({});
     }
   });
 
@@ -117,6 +126,7 @@ if (Meteor.isServer) {
       Meteor.http.get("https://api.test.sabre.com/v2/shop/flights/fares?origin=SFO&lengthofstay=3&location=US&theme=GAMBLING&pointofsalecountry=US&topdestinations=2", {headers: {"Authorization": "Bearer T1RLAQJ2NvikXFGJwHzs4LBwCUySjJVsjhDNHgXTt0IqwRS23JzVG/F3AACgqltkCdUvNVLjlcuodlKEJJi5oRqitfdAkCiIfBKH/og6sI+ZHBIPIpn3ZdudKT+IyMcU5wH0kO0cK5Q8RorgRZixTvivCbiNTfx2Wc3fZ1qxGV+oROA9EDx/2CbQIV4aX9AsmozRIVCELiQ5AhOg2Uh4tqt4NOQrvaMMwV6Go+JK8VVcXIW4JfI38eQbCPl7LYK7WddmclJQ9uNrtnEMFw**", "X-Originating-Ip": "64.245.0.68"}}, function(error, response){
         reactiveCity = response.data.FareInfo[0].DestinationLocation;
         console.log(reactiveCity);
+        Cities.insert({city: reactiveCity, theme: "gambling"});
         return reactiveCity;
       })
     }

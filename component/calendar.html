@@ -15,7 +15,12 @@
             <span><input type="textarea" placeholder="Desired destination" class="input-lg col-lg-10 lead"></span><br>
             <input type="submit" value="Submit" class="btn-lg btn-success lead">
             </form>
-            {{ arrivalCity }}
+
+            {{ #each destinations }}
+            {{> city}}
+            {{ /each}}
+
+
     </div>
 </div>
 <script type="text/javascript">
