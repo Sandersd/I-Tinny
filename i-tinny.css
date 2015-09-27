@@ -2,23 +2,34 @@
 [Table of Contents]
 
 1. Universal Edits / #Universal
-2. About.html / #About
-3.
-------------------------------------------------------------------**/
+2. Header  / #Header
+3. About.html / #About
+------------------- -----------------------------------------------**/
 
 /* #Universal
 ================================ */
 body {
-	background-color: #bec0ac;
+	background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/10/222429/2d539a7f7017db4a713ab4aafba5f5ac.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* #Header
+================================ */
+
+.gFont {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:white;
+	font-weight: 800;
+}
+
+.btn-primary {
+	background-color:#817598;
+	border-color: #817598;	
 }
 
 /* #About
 ================================ */
-
-.gFont {
-	font-family: 'Ubuntu Condensed', sans-serif;
-}
-
 .blue-box {
 	background-color: #337AB7;
     color: white;
