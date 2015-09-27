@@ -22,3 +22,7 @@ twbs:bootstrap
 http
 kadira:blaze-layout
 fourseven:scss
+mizzao:jquery-ui
+drblue:fullcalendar
+rajit:bootstrap3-datepicker
+tsega:bootstrap3-datetimepicker
