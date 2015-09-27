@@ -56,6 +56,10 @@ body {
 	height: 100%;
 }
 
+.right{
+	float: right;
+}
+
 /* #Header
 ================================ */
 
@@ -90,4 +94,38 @@ body {
 }
 
 
+/* #Personality Test
+================================ */
 
+.progress-bar{
+	/*background-image: none!important;*/
+}
+
+.progress-bar-inner{
+	background-color: #C05CC1!important;
+}
+
+
+/* #Results Page
+================================ */
+
+.profile-img-holder{
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-img-holder img{
+	width: 100%;
+}
+
+.show-result-graph p{
+	display: inline;
+	font-weight: 500;
+}
+
+
+.input-text{
+    font-size: 1em;
+    margin-bottom: 3px;
+    font-weight: 500;
+}
