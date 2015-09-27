@@ -1,14 +1,48 @@
+Events = new Mongo.Collection("events");
+Cities = new Mongo.Collection("cities");
+
+
+
 if (Meteor.isClient) {
   // This code only runs on the client
-  Template.body.helpers({
-    tasks: function () {
-      return Tasks.find({});
+  Template.destinations.helpers({
+    places: function () {
+      return Events.find({});
+    }
+  });
+
+  Template.calendar.helpers({
+    destinations: function (){
+      return Cities.find({});
     }
   });
 
   Meteor.startup(function(){
     BlazeLayout.render('main', { content: "first" });
-  })
+
+  });
+
+  Template.calendar.events({
+    "submit .bookFlight": function (event) {
+      event.preventDefault();
+      console.log("TESTING");
+      // call a method here;
+      // Meteor.call("oAuth");
+
+      Meteor.call("bookFlight", function(error, response){
+        Session.set("arrivalCity", response);
+        console.log(Session.get("arrivalCity"));
+      });
+
+      console.log("**************");
+    }
+  });
+
+  Template.calendar.helpers({
+    arrivalCity: function(){
+      return Session.get("arrivalCity");
+    }
+  });
 
   Template.test_page.events({
     "click .new-assessment": function (event) {
@@ -35,6 +69,7 @@ if (Meteor.isClient) {
 
 
           HTTP.call('GET', 'https://api-sandbox.traitify.com/v1/assessments/' + Session.get("assessment_id") + '?data=types', {headers: { "Content-Type": "application/json", "Authorization": "Basic vuton8j6qv0o3mn0kqpkpbdmo6:x"} }, function(error, response){
+
             //animate progress bar
             $('#progress-1').width(500);
             $('#progress-2').width(270);
@@ -44,10 +79,71 @@ if (Meteor.isClient) {
             console.log(response.data.personality_types[0]["score"])
             console.log(response.data.personality_types[2]["personality_type"]["name"])
             console.log(response.data.personality_types[5]["personality_type"]["name"])
+
+            Session.set('person', response.data.personality_types);
+
           })
         })
       })
+}
+});
+
+  Template.results.events({
+    "click #places": function(event, template){
+       var personality = Session.get('person');
+       var ambitious = personality[0]["score"];
+       var mellow = personality[2]["score"];
+       var social = personality[5]["score"];
+       console.log(ambitious + ', ' + mellow + ', ' + social);
+       var mood = '?mood=' + ambitious + '&mood=' + mellow + '&mood=' +social;
+
+       mood += "&Category=camping&State=CA&City=sunnyvale";
+       HTTP.call( 'GET', 'http://localhost:5000/itinerary' + mood, function( error, response ) {
+         var newEvents = JSON.parse(response.content);
+         console.log(newEvents);
+         console.log(newEvents.businesses.length);
+
+         for(var i = 0; i < newEvents.businesses.length; i++) {
+           var name = newEvents.businesses[i].name;
+           var address = newEvents.businesses[i].address;
+           var state = newEvents.businesses[i].state;
+           var zip = newEvents.businesses[i].zip;
+           var city = newEvents.businesses[i].city;
+
+           Events.insert({name: name, address: address, city: city, state: state, zip: zip, category: "Social"});
+         }
+
+
+
+       });
     }
   });
 
+
+}
+
+
+if (Meteor.isServer) {
+  Meteor.methods({
+    oAuth: function(){
+      HTTP.call('POST', "https://api.test.sabre.com/v2/auth/token", {headers: [{"Content-Type": "application/x-www-form-urlencoded", "Authorization": "Basic VmpFNmNEazViRzlpYVhsbGJtdzBOVzFvWWpwRVJWWkRSVTVVUlZJNlJWaFU6UTNSaGJUTlNXVE09"}]}, function(error, response){
+        console.log(error);
+        console.log("*************");
+        console.log(response);
+      })
+    },
+
+    // VjE6cDk5bG9iaXllbmw0NW1oYjpERVZDRU5URVI6RVhU
+    // Q3RhbTNSWTM=
+
+
+    bookFlight: function(){
+      Meteor.http.get("https://api.test.sabre.com/v2/shop/flights/fares?origin=SFO&lengthofstay=3&location=US&theme=GAMBLING&pointofsalecountry=US&topdestinations=2", {headers: {"Authorization": "Bearer T1RLAQJ2NvikXFGJwHzs4LBwCUySjJVsjhDNHgXTt0IqwRS23JzVG/F3AACgqltkCdUvNVLjlcuodlKEJJi5oRqitfdAkCiIfBKH/og6sI+ZHBIPIpn3ZdudKT+IyMcU5wH0kO0cK5Q8RorgRZixTvivCbiNTfx2Wc3fZ1qxGV+oROA9EDx/2CbQIV4aX9AsmozRIVCELiQ5AhOg2Uh4tqt4NOQrvaMMwV6Go+JK8VVcXIW4JfI38eQbCPl7LYK7WddmclJQ9uNrtnEMFw**", "X-Originating-Ip": "64.245.0.68"}}, function(error, response){
+        reactiveCity = response.data.FareInfo[0].DestinationLocation;
+        console.log(reactiveCity);
+        Cities.insert({city: reactiveCity, theme: "gambling"});
+        return reactiveCity;
+      })
+    }
+  })
 }

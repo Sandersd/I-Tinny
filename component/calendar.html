@@ -1,15 +1,20 @@
 <template name="calendar">
   <div class="container">
+
     <div class='col-md-3'>
         <p class="input-text lead">Dates:</p>
-        <div class="form-group lead">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+        <form class="bookFlight">
+            <div class="form-group lead">
+                <div class='input-group date' id='datetimepicker6'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
-        </div>
+        </form>
+
+
     </div>
 
     <div class="col-md-3">
@@ -18,6 +23,9 @@
         <input type="submit" value="Submit" class="btn btn-primary lead right">
     </div>
 
+    {{ #each destinations }}
+        {{> city}}
+    {{ /each}}
 
 
 </div>

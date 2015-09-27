@@ -1,0 +1,20 @@
+<template name="destinations">
+  <h1>Suggested Destinations</h1>
+  <ul>
+    {{#each places}}
+    <li>{{> destination}}</li>
+    {{/each}}
+  </ul>
+
+</template>
+
+<template name="destination">
+  <ul>
+    <li>{{name}}</li>
+    <li>{{category}}</li>
+    <li>{{address}}</li>
+    <li>{{city}}</li>
+    <li>339-234-2342</li>
+    <li><a href="https://developer.sabre.com">Book Here</a></li>
+  </ul>
+</template>
