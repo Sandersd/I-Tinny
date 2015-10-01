@@ -21,9 +21,11 @@ insecure                # Allow all DB writes from clients (for prototyping)
 twbs:bootstrap
 http
 kadira:blaze-layout
-fourseven:scss
+fourseven:scss@=2.1.1
 mizzao:jquery-ui
 drblue:fullcalendar
 rajit:bootstrap3-datepicker
 tsega:bootstrap3-datetimepicker
 ian:accounts-ui-bootstrap-3
+oauth2
+reactive-var

@@ -1,6 +1,9 @@
 <template name="calendar">
   <div class="container">
-    <div class='col-md-10'>
+
+    <div class='col-md-3'>
+        <p class="input-text lead">Dates:</p>
+        <form class="bookFlight">
             <div class="form-group lead">
                 <div class='input-group date' id='datetimepicker6'>
                     <input type='text' class="form-control" />
@@ -9,11 +12,27 @@
                     </span>
                 </div>
             </div>
-            <p class="col-md-10 lead">Please input your desited destination: </p>
-            <span><input type="textarea" placeholder="Desired destination" class="input-lg col-lg-10 lead"></span><br>
-            <input type="submit" value="Submit" class="btn-lg btn-success lead">
+        </form>
+
+
     </div>
+
+    <div class="col-md-3">
+        <p class="input-text lead">Destination:</p>
+        <span><input type="text" placeholder="Desired destination" class="input-md lead"></span><br>
+        <input type="submit" value="Submit" class="btn btn-primary lead right">
+    </div>
+
+    {{ #each destinations }}
+        {{> city}}
+    {{ /each}}
+
+
 </div>
+
+
+
+
 <script type="text/javascript">
 $(function () {
     $('#datetimepicker6').datetimepicker();
